@@ -25,17 +25,8 @@
 
     <h2>그림</h2>
     <figure class="figure">
-      <svg viewBox="0 0 640 220" role="img" aria-label="상승 BOS와 하락 초크">
-        <rect width="640" height="220" fill="#fffaf0"/>
-        <polyline points="40,160 90,100 140,130 200,70 250,110 320,40" fill="none" stroke="#1f5c45" stroke-width="4"/>
-        <text x="210" y="58" fill="#1f5c45" font-size="14" font-family="IBM Plex Mono,monospace">BOS</text>
-        <line x1="200" y1="70" x2="200" y2="200" stroke="#d4c6a8" stroke-dasharray="4 3"/>
-        <text x="40" y="28" fill="#1c1914" font-size="15">상승: 직전 고점을 종가로 넘김</text>
-        <polyline points="360,50 410,90 450,70 500,140 540,110 600,180" fill="none" stroke="#9f2d2d" stroke-width="4"/>
-        <text x="500" y="100" fill="#9f2d2d" font-size="14" font-family="IBM Plex Mono,monospace">초크</text>
-        <text x="360" y="210" fill="#1c1914" font-size="15">하락 중, 마지막 BOS 고점을 종가로 넘김</text>
-      </svg>
-      <figcaption>왼쪽은 같은 방향(BOS). 오른쪽은 성격이 바뀌는 자리(초크). 둘 다 꼬리가 아니라 종가.</figcaption>
+      <div data-chart="bos-choch"></div>
+      <figcaption>왼쪽: 직전 고점 <strong>가로선</strong>을 종가가 넘으면 BOS. 오른쪽: 하락 중 <strong>마지막 BOS 고점 가로선</strong>을 종가가 넘으면 초크. 꼬리만 닿고 종가가 안에 있으면 인정하지 않습니다.</figcaption>
     </figure>
 
     <h2>규칙</h2>
@@ -85,9 +76,20 @@
       <button type="button" id="mastery-btn" data-step="01">이 스텝, 익숙하다고 표시</button>
       <p id="mastery-note"></p>
     </div>
+
+    <section class="refs">
+      <h2>참고 영상</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=6_4pkXiAy_c" target="_blank" rel="noopener">차트제로 ICT 초보</a> — BOS·초크·종가 기준 (이 수첩 초보 구간의 출발점)</li>
+        <li><a href="https://youtu.be/pYoFxMOxT0k" target="_blank" rel="noopener">ICT 기본</a> — 구조(BOS·ChoCH)와 스윙 표시</li>
+        <li><a href="https://youtu.be/UZeTtdArvrE" target="_blank" rel="noopener">CRT</a> — 캔들 범위로 구조를 읽는 보조 관점</li>
+      </ul>
+    </section>
+
     <p><a href="02.html">다음: 자리 (FVG · 오더블록)</a> · <a href="../playbook.html">실전 수첩</a></p>
   </main>
   <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/charts.js"></script>
   <script src="../assets/app.js"></script>
 </body>
 </html>

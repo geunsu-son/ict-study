@@ -21,17 +21,8 @@
     <p>이번 추진 파동에 피보를 걸어 <strong>0.618–0.705</strong> (가운데 0.705, 넓게 보면 0.79까지)로 가격이 돌아올 때, 그 띠 안에 FVG/OB가 있으면 남긴다.</p>
 
     <figure class="figure">
-      <svg viewBox="0 0 640 230" role="img" aria-label="OTE 구간">
-        <rect width="640" height="230" fill="#fffaf0"/>
-        <polyline points="60,190 160,40 520,150" fill="none" stroke="#1c1914" stroke-width="3"/>
-        <line x1="160" y1="40" x2="600" y2="40" stroke="#d4c6a8" stroke-dasharray="4 3"/>
-        <line x1="70" y1="190" x2="600" y2="190" stroke="#d4c6a8" stroke-dasharray="4 3"/>
-        <rect x="300" y="118" width="220" height="36" fill="#e8c888" opacity="0.9"/>
-        <text x="310" y="141" font-size="14" font-family="IBM Plex Mono,monospace">OTE 0.618–0.705</text>
-        <text x="168" y="36" font-size="12">고점 0</text>
-        <text x="70" y="210" font-size="12">저점 1.0 · 깨면 실패</text>
-      </svg>
-      <figcaption>롱: 저점(1.0)에서 고점(0)으로 피보. 가격이 내려와 노란 띠에 들어오면 후보. SL은 보통 1.0 밖.</figcaption>
+      <div data-chart="ote"></div>
+      <figcaption>왼쪽 추진 캔들 뒤, 가격이 <strong>캔들 되돌림</strong>으로 0.618–0.705 띠(보라)에 들어오면 OTE 후보. 0·1.0은 스윙 고·저, FVG 50%와 다른 선입니다.</figcaption>
     </figure>
 
     <h2>FVG 50%와의 차이</h2>
@@ -72,9 +63,20 @@
       <button type="button" id="mastery-btn" data-step="05">이 스텝, 익숙하다고 표시</button>
       <p id="mastery-note"></p>
     </div>
+
+    <section class="refs">
+      <h2>참고 영상</h2>
+      <ul>
+        <li><a href="https://youtu.be/pYoFxMOxT0k" target="_blank" rel="noopener">ICT 기본</a> — OTE·피보나치 되돌림 구간</li>
+        <li><a href="https://www.youtube.com/watch?v=1EWaLW9oOjA" target="_blank" rel="noopener">ICT 실습 보조</a> — OTE와 FVG 겹침 연습</li>
+        <li><a href="https://youtu.be/cJwmKwMsFB0" target="_blank" rel="noopener">HTF · LTF</a> — 큰 추진(HTF)과 되돌림(LTF) 나누기</li>
+      </ul>
+    </section>
+
     <p><a href="04.html">이전</a> · <a href="06.html">다음: 실버불릿</a></p>
   </main>
   <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/charts.js"></script>
   <script src="../assets/app.js"></script>
 </body>
 </html>
