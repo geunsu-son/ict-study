@@ -3,13 +3,18 @@
   "use strict";
 
   var KEY = "ict-study-v1";
+  var LEVELS = {
+    beginner: { label: "초보자", note: "차트제로 영상 · BOS · 초크 · OB · FVG" },
+    advanced: { label: "숙련자", note: "원전 ICT · 위치 · 시간 · OTE · 실버불릿" },
+  };
+
   var STEPS = [
-    { id: "01", title: "구조", short: "BOS · 초크", href: "steps/01.html" },
-    { id: "02", title: "자리", short: "FVG · 오더블록", href: "steps/02.html" },
-    { id: "03", title: "위치", short: "프리미엄 · 디스카운트", href: "steps/03.html" },
-    { id: "04", title: "시간", short: "킬존", href: "steps/04.html" },
-    { id: "05", title: "되돌림", short: "OTE", href: "steps/05.html" },
-    { id: "06", title: "모델", short: "실버불릿", href: "steps/06.html" },
+    { id: "01", title: "구조", short: "BOS · 초크", href: "steps/01.html", level: "beginner" },
+    { id: "02", title: "자리", short: "FVG · 오더블록", href: "steps/02.html", level: "beginner" },
+    { id: "03", title: "위치", short: "프리미엄 · 디스카운트", href: "steps/03.html", level: "advanced" },
+    { id: "04", title: "시간", short: "킬존", href: "steps/04.html", level: "advanced" },
+    { id: "05", title: "되돌림", short: "OTE", href: "steps/05.html", level: "advanced" },
+    { id: "06", title: "모델", short: "실버불릿", href: "steps/06.html", level: "advanced" },
   ];
 
   var KZ = [
@@ -68,6 +73,46 @@
     return STEPS.filter(function (s) {
       return isMastered(data, s.id);
     }).length;
+  }
+
+  function stepsByLevel(level) {
+    return STEPS.filter(function (s) {
+      return s.level === level;
+    });
+  }
+
+  function masteredCountByLevel(data, level) {
+    return stepsByLevel(level).filter(function (s) {
+      return isMastered(data, s.id);
+    }).length;
+  }
+
+  function renderPathCard(data, s) {
+    var unlocked = isUnlocked(data, s.id);
+    var mastered = isMastered(data, s.id);
+    var status = mastered ? "익숙함" : unlocked ? "실습 중" : "이전 스텝 먼저";
+    var cls = "path-card is-" + s.level;
+    if (mastered) cls += " is-done";
+    else if (!unlocked) cls += " is-lock";
+    return (
+      '<a class="' +
+      cls +
+      '" href="' +
+      href(s.href) +
+      '">' +
+      '<span class="path-num">' +
+      s.id +
+      "</span>" +
+      "<span class=\"path-body\"><strong>" +
+      s.title +
+      "</strong><em>" +
+      s.short +
+      "</em></span>" +
+      '<span class="path-st">' +
+      status +
+      "</span>" +
+      "</a>"
+    );
   }
 
   function setMastered(id, on) {
@@ -148,7 +193,7 @@
       var unlocked = isUnlocked(data, s.id);
       var mastered = isMastered(data, s.id);
       var current = page === "step-" + s.id;
-      var cls = "dot";
+      var cls = "dot is-" + s.level;
       if (mastered) cls += " is-done";
       else if (unlocked) cls += " is-open";
       else cls += " is-lock";
@@ -265,40 +310,30 @@
   }
 
   function renderHome() {
-    var list = document.getElementById("path-list");
-    if (!list) return;
     var data = load();
-    list.innerHTML = STEPS.map(function (s, i) {
-      var unlocked = isUnlocked(data, s.id);
-      var mastered = isMastered(data, s.id);
-      var status = mastered ? "익숙함" : unlocked ? "실습 중" : "이전 스텝 먼저";
-      var cls = "path-card";
-      if (mastered) cls += " is-done";
-      else if (!unlocked) cls += " is-lock";
-      return (
-        '<a class="' +
-        cls +
-        '" href="' +
-        href(s.href) +
-        '">' +
-        '<span class="path-num">' +
-        s.id +
-        "</span>" +
-        "<span class=\"path-body\"><strong>" +
-        s.title +
-        "</strong><em>" +
-        s.short +
-        "</em></span>" +
-        '<span class="path-st">' +
-        status +
-        "</span>" +
-        "</a>"
-      );
-    }).join("");
+    ["beginner", "advanced"].forEach(function (level) {
+      var list = document.getElementById("path-list-" + level);
+      if (!list) return;
+      list.innerHTML = stepsByLevel(level)
+        .map(function (s) {
+          return renderPathCard(data, s);
+        })
+        .join("");
+    });
     var meter = document.getElementById("home-meter");
     if (meter) {
-      var n = masteredCount(data);
-      meter.textContent = n + " / " + STEPS.length + " 스텝 익숙함";
+      var beg = masteredCountByLevel(data, "beginner");
+      var adv = masteredCountByLevel(data, "advanced");
+      meter.textContent =
+        "초보 " +
+        beg +
+        " / " +
+        stepsByLevel("beginner").length +
+        " · 숙련 " +
+        adv +
+        " / " +
+        stepsByLevel("advanced").length +
+        " 스텝 익숙함";
     }
   }
 
@@ -371,6 +406,39 @@
       var tag = el.querySelector(".gate-tag");
       if (tag) tag.textContent = ok ? "열림" : "스텝 " + need + " 이후";
     });
+  }
+
+  function bindPlaybookTabs() {
+    var root = document.getElementById("playbook-tabs");
+    if (!root) return;
+    var zones = document.querySelectorAll(".playbook-zone");
+    var key = "playbook-view";
+
+    function apply(view) {
+      root.querySelectorAll("[data-view]").forEach(function (btn) {
+        btn.classList.toggle("is-on", btn.getAttribute("data-view") === view);
+      });
+      zones.forEach(function (zone) {
+        var lv = zone.getAttribute("data-level");
+        var show = view === "all" || view === lv;
+        zone.hidden = !show;
+      });
+      try {
+        sessionStorage.setItem(key, view);
+      } catch (e) {}
+    }
+
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-view]");
+      if (!btn) return;
+      apply(btn.getAttribute("data-view"));
+    });
+
+    var saved = "beginner";
+    try {
+      saved = sessionStorage.getItem(key) || "beginner";
+    } catch (e) {}
+    apply(saved);
   }
 
   function bindSessions() {
@@ -506,6 +574,7 @@
     if (document.body.getAttribute("data-page") === "playbook") {
       bindChecks(document, "playbook", "playbook");
       renderPlaybookGates();
+      bindPlaybookTabs();
     }
     renderHome();
     renderClock();

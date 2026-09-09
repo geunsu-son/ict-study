@@ -6,14 +6,14 @@
   <title>02 자리 · ICT 실습 수첩</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body data-page="step-02" data-step="02" data-base="..">
   <div id="chrome"></div>
   <main class="wrap page">
     <div id="lock-banner" hidden>1번(구조)을 익숙하다고 표시한 뒤에 이 스텝의 「익숙함」을 누를 수 있습니다.</div>
-    <p class="kicker">Step 02 · 차트제로 핵심</p>
+    <p class="kicker">Step 02 · <span class="level-badge is-beginner">초보자</span> · 차트제로 핵심</p>
     <h1>자리 — FVG와 오더블록</h1>
     <p class="lede">구조가 움직인 뒤에 남는 흔적입니다. <strong>오더블록</strong>은 물량을 담은 캔들, <strong>FVG</strong>는 너무 빨리 지나가 비어 있는 칸입니다.</p>
 
@@ -21,27 +21,15 @@
     <p>장대 캔들 → 그 움직임이 BOS/초크인가 → 직전 반대색 짧은 캔들 = OB, 앞뒤가 안 닿으면 FVG. <strong>겹친 자리를 먼저</strong> 본다.</p>
 
     <h2>그림</h2>
-    <figure class="figure">
-      <svg viewBox="0 0 640 230" role="img" aria-label="FVG 세 캔들과 오더블록">
-        <rect width="640" height="230" fill="#fffaf0"/>
-        <rect x="40" y="90" width="36" height="70" fill="#9f2d2d"/>
-        <rect x="92" y="30" width="40" height="140" fill="#1f5c45"/>
-        <rect x="148" y="48" width="36" height="55" fill="#1f5c45"/>
-        <rect x="40" y="78" width="144" height="18" fill="#e8c888" opacity="0.85"/>
-        <text x="44" y="92" font-size="11" font-family="IBM Plex Mono,monospace">FVG</text>
-        <text x="36" y="200" font-size="14">1 · 2(장대) · 3 — 1의 고와 3의 저가 안 닿음</text>
-        <rect x="380" y="120" width="34" height="40" fill="#9f2d2d"/>
-        <rect x="430" y="28" width="44" height="150" fill="#1f5c45"/>
-        <text x="368" y="115" font-size="12" fill="#9f2d2d">OB</text>
-        <text x="370" y="200" font-size="14">장대 직전 짧은 반대색 = 오더블록</text>
-      </svg>
-      <figcaption>왼쪽 FVG는 빈 공간, 오른쪽 OB는 캔들 하나. 색은 상관없고, 가운데(또는 장대)가 얼마나 뻗었는지가 중요합니다.</figcaption>
+    <figure class="figure is-compact">
+      <div data-chart="fvg"></div>
+      <figcaption>왼쪽 FVG: <strong>1번 캔들 고점(꼬리)</strong>과 <strong>3번 캔들 저점(꼬리)</strong> 사이에 빈 갭. 몸통이 아니라 꼬리 기준입니다. 오른쪽 OB는 장대 직전 반대색 짧은 캔들.</figcaption>
     </figure>
 
     <h2>규칙</h2>
     <ul>
-      <li><strong>상승 FVG:</strong> 1번 고점과 3번 저점이 겹치지 않음.</li>
-      <li><strong>하락 FVG:</strong> 1번 저점과 3번 고점이 겹치지 않음.</li>
+      <li><strong>상승 FVG:</strong> 1번 <strong>고점(꼬리)</strong>과 3번 <strong>저점(꼬리)</strong>이 겹치지 않음.</li>
+      <li><strong>하락 FVG:</strong> 1번 <strong>저점(꼬리)</strong>과 3번 <strong>고점(꼬리)</strong>이 겹치지 않음.</li>
       <li><strong>상승 OB:</strong> 급등 장대 직전의 짧은 음봉. 세력 평단으로 보고 지지 후보.</li>
       <li><strong>하락 OB:</strong> 급락 장대 직전의 짧은 양봉. 저항 후보.</li>
       <li>장대 뒤에 BOS/초크가 없으면 지운다. 개인 자금으로는 구조를 못 만든다는 영상 논리.</li>
@@ -85,9 +73,20 @@
       <button type="button" id="mastery-btn" data-step="02">이 스텝, 익숙하다고 표시</button>
       <p id="mastery-note"></p>
     </div>
+
+    <section class="refs">
+      <h2>참고 영상</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=6_4pkXiAy_c" target="_blank" rel="noopener">차트제로 ICT 초보</a> — FVG·OB·진입·SL·TP</li>
+        <li><a href="https://youtu.be/pYoFxMOxT0k" target="_blank" rel="noopener">ICT 기본</a> — FVG 정의와 3캔들 갭</li>
+        <li><a href="https://www.youtube.com/watch?v=1EWaLW9oOjA" target="_blank" rel="noopener">ICT 실습 보조</a> — 차트에 FVG·OB 표시 연습</li>
+      </ul>
+    </section>
+
     <p><a href="01.html">이전</a> · <a href="03.html">다음: 위치</a> · <a href="../playbook.html">실전 수첩</a></p>
   </main>
   <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/charts.js"></script>
   <script src="../assets/app.js"></script>
 </body>
 </html>

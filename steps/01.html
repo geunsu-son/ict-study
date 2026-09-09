@@ -6,14 +6,14 @@
   <title>01 구조 · ICT 실습 수첩</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body data-page="step-01" data-step="01" data-base="..">
   <div id="chrome"></div>
   <main class="wrap page">
     <div id="lock-banner" hidden>이전 스텝을 익숙하다고 표시해야 실습으로 넘어갈 수 있습니다. 읽기는 가능합니다.</div>
-    <p class="kicker">Step 01 · 가장 먼저</p>
+    <p class="kicker">Step 01 · <span class="level-badge is-beginner">초보자</span> · 가장 먼저</p>
     <h1>구조 — BOS와 초크</h1>
     <p class="lede">ICT의 첫 질문은 「지금 오르냐」가 아니라 <strong>기관이 만든 구조가 이어지나, 깨지나</strong>입니다. FVG를 찾기 전에 이것만 그릴 수 있어야 합니다.</p>
 
@@ -24,18 +24,9 @@
     <p>자리(FVG)는 차트에 많이 나옵니다. 구조를 모르면 모든 빈 칸이 타점으로 보입니다. 이 스텝의 합격은 「빈 칸을 안 보는 것」입니다.</p>
 
     <h2>그림</h2>
-    <figure class="figure">
-      <svg viewBox="0 0 640 220" role="img" aria-label="상승 BOS와 하락 초크">
-        <rect width="640" height="220" fill="#fffaf0"/>
-        <polyline points="40,160 90,100 140,130 200,70 250,110 320,40" fill="none" stroke="#1f5c45" stroke-width="4"/>
-        <text x="210" y="58" fill="#1f5c45" font-size="14" font-family="IBM Plex Mono,monospace">BOS</text>
-        <line x1="200" y1="70" x2="200" y2="200" stroke="#d4c6a8" stroke-dasharray="4 3"/>
-        <text x="40" y="28" fill="#1c1914" font-size="15">상승: 직전 고점을 종가로 넘김</text>
-        <polyline points="360,50 410,90 450,70 500,140 540,110 600,180" fill="none" stroke="#9f2d2d" stroke-width="4"/>
-        <text x="500" y="100" fill="#9f2d2d" font-size="14" font-family="IBM Plex Mono,monospace">초크</text>
-        <text x="360" y="210" fill="#1c1914" font-size="15">하락 중, 마지막 BOS 고점을 종가로 넘김</text>
-      </svg>
-      <figcaption>왼쪽은 같은 방향(BOS). 오른쪽은 성격이 바뀌는 자리(초크). 둘 다 꼬리가 아니라 종가.</figcaption>
+    <figure class="figure is-compact">
+      <div data-chart="bos-choch"></div>
+      <figcaption>왼쪽: 직전 고점 <strong>가로선</strong>을 종가가 넘으면 BOS. 오른쪽: 하락 중 <strong>마지막 BOS 고점 가로선</strong>을 종가가 넘으면 초크. 꼬리만 닿고 종가가 안에 있으면 인정하지 않습니다.</figcaption>
     </figure>
 
     <h2>규칙</h2>
@@ -85,9 +76,20 @@
       <button type="button" id="mastery-btn" data-step="01">이 스텝, 익숙하다고 표시</button>
       <p id="mastery-note"></p>
     </div>
+
+    <section class="refs">
+      <h2>참고 영상</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=6_4pkXiAy_c" target="_blank" rel="noopener">차트제로 ICT 초보</a> — BOS·초크·종가 기준 (이 수첩 초보 구간의 출발점)</li>
+        <li><a href="https://youtu.be/pYoFxMOxT0k" target="_blank" rel="noopener">ICT 기본</a> — 구조(BOS·ChoCH)와 스윙 표시</li>
+        <li><a href="https://youtu.be/UZeTtdArvrE" target="_blank" rel="noopener">CRT</a> — 캔들 범위로 구조를 읽는 보조 관점</li>
+      </ul>
+    </section>
+
     <p><a href="02.html">다음: 자리 (FVG · 오더블록)</a> · <a href="../playbook.html">실전 수첩</a></p>
   </main>
   <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/charts.js"></script>
   <script src="../assets/app.js"></script>
 </body>
 </html>
