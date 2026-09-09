@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 되돌림 · ICT 실습 수첩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="step-05" data-step="05" data-base="..">
+  <div id="chrome"></div>
+  <main class="wrap page">
+    <div id="lock-banner" hidden>4번(시간)을 익숙하다고 표시한 뒤에 이 스텝의 「익숙함」을 누를 수 있습니다.</div>
+    <p class="kicker">Step 05 · 원전 필터 ③ 되돌림</p>
+    <h1>되돌림 — OTE</h1>
+    <p class="lede"><strong>Optimal Trade Entry</strong>. 급하게 한쪽으로 간 뒤, 너무 얕지도 끝까지도 아닌 <strong>조금 더 깊은 되돌림</strong>을 노립니다. 이 repo의 <code>OTE Retrace Entry.pine</code>과 같은 아이디어입니다.</p>
+
+    <h2>한 줄</h2>
+    <p>이번 추진 파동에 피보를 걸어 <strong>0.618–0.705</strong> (가운데 0.705, 넓게 보면 0.79까지)로 가격이 돌아올 때, 그 띠 안에 FVG/OB가 있으면 남긴다.</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 640 230" role="img" aria-label="OTE 구간">
+        <rect width="640" height="230" fill="#fffaf0"/>
+        <polyline points="60,190 160,40 520,150" fill="none" stroke="#1c1914" stroke-width="3"/>
+        <line x1="160" y1="40" x2="600" y2="40" stroke="#d4c6a8" stroke-dasharray="4 3"/>
+        <line x1="70" y1="190" x2="600" y2="190" stroke="#d4c6a8" stroke-dasharray="4 3"/>
+        <rect x="300" y="118" width="220" height="36" fill="#e8c888" opacity="0.9"/>
+        <text x="310" y="141" font-size="14" font-family="IBM Plex Mono,monospace">OTE 0.618–0.705</text>
+        <text x="168" y="36" font-size="12">고점 0</text>
+        <text x="70" y="210" font-size="12">저점 1.0 · 깨면 실패</text>
+      </svg>
+      <figcaption>롱: 저점(1.0)에서 고점(0)으로 피보. 가격이 내려와 노란 띠에 들어오면 후보. SL은 보통 1.0 밖.</figcaption>
+    </figure>
+
+    <h2>FVG 50%와의 차이</h2>
+    <ul>
+      <li>FVG 50% = <strong>갭 박스</strong>의 중앙.</li>
+      <li>OTE = <strong>파동 전체</strong>의 61.8–70.5% 되돌림.</li>
+      <li>좋은 자리: 둘이 겹침.</li>
+    </ul>
+
+    <h2>피보를 어디에 걸까</h2>
+    <table>
+      <thead><tr><th></th><th>시작 (1.0)</th><th>끝 (0)</th></tr></thead>
+      <tbody>
+        <tr><td>롱</td><td>훑었거나 의미 있는 저점</td><td>그다음 장대로 만든 고점</td></tr>
+        <tr><td>숏</td><td>훑었거나 의미 있는 고점</td><td>그다음 장대로 만든 저점</td></tr>
+      </tbody>
+    </table>
+    <p>이 수첩의 Pine 쪽 구현은 구조가 <strong>HH-HL-HH / LL-LH-LL</strong>로 깨끗할 때만 셋업으로 봅니다. 손으로 연습할 때도 중간에 반대 라벨이 끼면 다시 셉니다.</p>
+
+    <h2>차트에서 할 일</h2>
+    <ol>
+      <li>킬존 안의, 방향이 맞는 추진 파동 하나를 고른다.</li>
+      <li>피보를 걸고 0.5 / 0.618 / 0.705 / 0.79만 남긴다.</li>
+      <li>2번에서 그린 FVG가 노란 띠(0.618–0.705)와 겹치는지 본다.</li>
+      <li>겹치면 수첩에 「A」, 파동 OTE만 있으면 「B」, FVG만 있으면 「C」.</li>
+      <li>과거에서 A가 첫 터치에 어떻게 반응했는지 세 장만 본다. 통계를 내지 말고 눈을 훈련한다.</li>
+    </ol>
+
+    <h2>체크</h2>
+    <ul class="check-list">
+      <li><input type="checkbox" data-check="05-a"><span>파동 하나에 피보를 정확히 걸었다. (박스 중앙에 걸지 않음)</span></li>
+      <li><input type="checkbox" data-check="05-b"><span>0.618과 0.705를 눈어림이 아니라 도구로 표시했다.</span></li>
+      <li><input type="checkbox" data-check="05-c"><span>A/B/C 등급을 한 자리 이상 매겼다.</span></li>
+      <li><input type="checkbox" data-check="05-d"><span>1.0을 깨면 그 셋업은 실패라고 점선 SL을 그었다.</span></li>
+    </ul>
+
+    <div class="mastery">
+      <button type="button" id="mastery-btn" data-step="05">이 스텝, 익숙하다고 표시</button>
+      <p id="mastery-note"></p>
+    </div>
+    <p><a href="04.html">이전</a> · <a href="06.html">다음: 실버불릿</a></p>
+  </main>
+  <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 시간 · ICT 실습 수첩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="step-04" data-step="04" data-base="..">
+  <div id="chrome"></div>
+  <main class="wrap page">
+    <div id="lock-banner" hidden>3번(위치)을 익숙하다고 표시한 뒤에 이 스텝의 「익숙함」을 누를 수 있습니다.</div>
+    <p class="kicker">Step 04 · 원전 필터 ② 시간</p>
+    <h1>시간 — 킬존</h1>
+    <p class="lede">차트는 24시간 열려 있어도, ICT는 <strong>큰돈이 들어오는 몇 시간</strong>만 본다고 가정합니다. 킬존은 「넓은 영업시간」입니다. 실버불릿(6번)은 그 안의 1시간 모델입니다.</p>
+
+    <h2>한 줄</h2>
+    <p>뉴욕 시계로 런던 오픈·뉴욕 오픈 근처에 생긴 FVG만 실습한다. 창 밖 자리는 그려도 진입 연습에서 뺀다.</p>
+
+    <div id="kz-clock"></div>
+
+    <h2>초보가 외울 창 (뉴욕)</h2>
+    <table>
+      <thead><tr><th>이름</th><th>뉴욕</th><th>한국 대략 (서머타임)</th><th>역할</th></tr></thead>
+      <tbody>
+        <tr><td>런던 킬존</td><td>02:00–05:00</td><td>15:00–18:00</td><td>하루 방향이 잡히기 시작</td></tr>
+        <tr><td>뉴욕 킬존</td><td>07:00–11:00</td><td>20:00–24:00</td><td>가장 활발. 여기만 봐도 됨</td></tr>
+        <tr><td>런던 마감</td><td>10:00–12:00</td><td>23:00–01:00</td><td>뉴욕과 겹침</td></tr>
+      </tbody>
+    </table>
+    <p class="fine">겨울(한국 +14시간)에는 표가 한 시간 밀립니다. 위 시계가 뉴욕 로컬을 읽습니다. 자료마다 30분–1시간 차이가 있습니다. <strong>숫자 암기보다 「장 열리는 때」</strong>가 먼저입니다.</p>
+
+    <h2>차트에서 할 일</h2>
+    <ol>
+      <li>트레이딩뷰에서 세로 세션 표시 또는 리플레이를 켠다.</li>
+      <li>어제 또는 오늘, <strong>뉴욕 킬존</strong> 한 구간만 고른다. 초보는 10:00–11:00 NY만 반복해도 된다.</li>
+      <li>그 시간 안에 1–3번을 그대로 한다: 구조 → 장대 → FVG/OB → 50% 위치.</li>
+      <li>같은 날, 킬존 <em>밖</em>에 생긴 FVG를 옆에 적어 비교한다. 반응이 다른지 관찰만.</li>
+      <li>코인을 쓰더라도 시계는 뉴욕으로 둔다. 원전은 외환·지수 기준임을 한 줄로 적는다.</li>
+    </ol>
+
+    <h2>체크</h2>
+    <ul class="check-list">
+      <li><input type="checkbox" data-check="04-a"><span>차트 시간대를 뉴욕으로 맞추거나, 한국 시각 환산을 적었다.</span></li>
+      <li><input type="checkbox" data-check="04-b"><span>킬존 안의 FVG 1개를 표시했다.</span></li>
+      <li><input type="checkbox" data-check="04-c"><span>킬존 밖 FVG 1개를 「연습 제외」로 표시했다.</span></li>
+      <li><input type="checkbox" data-check="04-d"><span>창이 아닐 때 진입 연습을 하지 않겠다는 문장을 수첩에 적었다.</span></li>
+    </ul>
+
+    <div class="callout do">한 창만 반복하세요. 세 킬존을 하루에 다 보면 다시 산만해집니다. 추천은 뉴욕 오픈입니다.</div>
+
+    <div class="mastery">
+      <button type="button" id="mastery-btn" data-step="04">이 스텝, 익숙하다고 표시</button>
+      <p id="mastery-note"></p>
+    </div>
+    <p><a href="03.html">이전</a> · <a href="05.html">다음: OTE</a></p>
+  </main>
+  <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

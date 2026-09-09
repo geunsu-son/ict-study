@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 구조 · ICT 실습 수첩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="step-01" data-step="01" data-base="..">
+  <div id="chrome"></div>
+  <main class="wrap page">
+    <div id="lock-banner" hidden>이전 스텝을 익숙하다고 표시해야 실습으로 넘어갈 수 있습니다. 읽기는 가능합니다.</div>
+    <p class="kicker">Step 01 · 가장 먼저</p>
+    <h1>구조 — BOS와 초크</h1>
+    <p class="lede">ICT의 첫 질문은 「지금 오르냐」가 아니라 <strong>기관이 만든 구조가 이어지나, 깨지나</strong>입니다. FVG를 찾기 전에 이것만 그릴 수 있어야 합니다.</p>
+
+    <h2>한 줄</h2>
+    <p><strong>BOS</strong> = 가던 방향이 종가로 한 번 더 깨짐. <strong>초크(CHoCH)</strong> = 마지막 BOS를 만든 반대쪽 고·저점을 종가로 깨짐.</p>
+
+    <h2>왜 1번인가</h2>
+    <p>자리(FVG)는 차트에 많이 나옵니다. 구조를 모르면 모든 빈 칸이 타점으로 보입니다. 이 스텝의 합격은 「빈 칸을 안 보는 것」입니다.</p>
+
+    <h2>그림</h2>
+    <figure class="figure">
+      <svg viewBox="0 0 640 220" role="img" aria-label="상승 BOS와 하락 초크">
+        <rect width="640" height="220" fill="#fffaf0"/>
+        <polyline points="40,160 90,100 140,130 200,70 250,110 320,40" fill="none" stroke="#1f5c45" stroke-width="4"/>
+        <text x="210" y="58" fill="#1f5c45" font-size="14" font-family="IBM Plex Mono,monospace">BOS</text>
+        <line x1="200" y1="70" x2="200" y2="200" stroke="#d4c6a8" stroke-dasharray="4 3"/>
+        <text x="40" y="28" fill="#1c1914" font-size="15">상승: 직전 고점을 종가로 넘김</text>
+        <polyline points="360,50 410,90 450,70 500,140 540,110 600,180" fill="none" stroke="#9f2d2d" stroke-width="4"/>
+        <text x="500" y="100" fill="#9f2d2d" font-size="14" font-family="IBM Plex Mono,monospace">초크</text>
+        <text x="360" y="210" fill="#1c1914" font-size="15">하락 중, 마지막 BOS 고점을 종가로 넘김</text>
+      </svg>
+      <figcaption>왼쪽은 같은 방향(BOS). 오른쪽은 성격이 바뀌는 자리(초크). 둘 다 꼬리가 아니라 종가.</figcaption>
+    </figure>
+
+    <h2>규칙</h2>
+    <table>
+      <thead><tr><th></th><th>보는 자리</th><th>조건</th></tr></thead>
+      <tbody>
+        <tr><td>상승 BOS</td><td>직전 스윙 고점</td><td>종가가 그 위</td></tr>
+        <tr><td>하락 BOS</td><td>직전 스윙 저점</td><td>종가가 그 아래</td></tr>
+        <tr><td>상승→초크</td><td><strong>마지막 상승 BOS를 만든 저점</strong></td><td>종가가 그 아래</td></tr>
+        <tr><td>하락→초크</td><td><strong>마지막 하락 BOS를 만든 고점</strong></td><td>종가가 그 위</td></tr>
+      </tbody>
+    </table>
+    <div class="callout dont">
+      하락 중에 생긴 작은 반등 고점을 넘겼다고 초크가 아닙니다. 우리가 볼 것은 그 하락을 <em>만들어 낸</em> 고점입니다.
+    </div>
+
+    <h2>차트에서 할 일 (오늘 실습)</h2>
+    <p>심볼은 아무거나. 초보는 <strong>15분 또는 1시간</strong>, 최근 3–5일만.</p>
+    <ol>
+      <li>눈에 보이는 스윙 고점에 H, 저점에 L을 손으로 표시한다.</li>
+      <li>고점이 높아지면 HH, 저점이 높아지면 HL. 반대면 LH / LL. (이름보다 높낮이가 중요)</li>
+      <li>종가로 고점을 넘긴 봉에 「BOS」.</li>
+      <li>마지막 BOS를 만든 반대 극값을 종가로 깨면 「초크」.</li>
+      <li>추세선을 그어 보고, 추세선이 깨져도 BOS 저점(또는 고점)이 남았는지 비교한다.</li>
+    </ol>
+
+    <h2>체크</h2>
+    <ul class="check-list">
+      <li><input type="checkbox" data-check="01-a"><span>스윙 고·저점을 최소 6개 표시했다.</span></li>
+      <li><input type="checkbox" data-check="01-b"><span>BOS를 종가 기준으로 2개 이상 찾았다.</span></li>
+      <li><input type="checkbox" data-check="01-c"><span>초크 후보를 고를 때 「마지막 BOS의 고/저」인지 물었다.</span></li>
+      <li><input type="checkbox" data-check="01-d"><span>꼬리만 뚫고 종가가 안에 남은 자리를 BOS로 쓰지 않았다.</span></li>
+      <li><input type="checkbox" data-check="01-e"><span>초크 직후 바로 반대로 들어가지 않고, 다음 BOS를 기다리는 문장을 수첩에 적었다.</span></li>
+    </ul>
+
+    <h2>흔한 실수</h2>
+    <ul>
+      <li>모든 고점 돌파를 초크로 부름.</li>
+      <li>1분봉의 작은 꺾임을 4시간 구조와 섞음. <strong>한 타임프레임만</strong> 본다.</li>
+      <li>이미 지나간 고·저점을 아직 남은 유동성으로 봄.</li>
+    </ul>
+
+    <h2>익숙함의 기준 (스스로)</h2>
+    <p>아무 차트나 열고, 수첩 없이 BOS 3개와 초크 1개를 5분 안에 표시할 수 있으면 충분합니다. 수익과 무관합니다.</p>
+
+    <div class="mastery">
+      <button type="button" id="mastery-btn" data-step="01">이 스텝, 익숙하다고 표시</button>
+      <p id="mastery-note"></p>
+    </div>
+    <p><a href="02.html">다음: 자리 (FVG · 오더블록)</a> · <a href="../playbook.html">실전 수첩</a></p>
+  </main>
+  <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

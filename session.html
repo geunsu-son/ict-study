@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>오늘 실습 · ICT 실습 수첩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;650&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="session" data-base=".">
+  <div id="chrome"></div>
+  <main class="wrap page">
+    <p class="kicker">Practice log</p>
+    <h1>오늘 실습</h1>
+    <p class="lede">한 장을 보고 세 줄만 남깁니다. 수익이 아니라 <strong>혼자 그렸는가</strong>를 기록합니다. 이 기기에만 저장됩니다.</p>
+
+    <form id="session-form" class="card" style="padding:1rem;">
+      <label for="symbol">심볼</label>
+      <input id="symbol" name="symbol" type="text" placeholder="예: BTCUSDT, ES, EURUSD" required>
+
+      <label for="tf">타임프레임</label>
+      <select id="tf" name="tf">
+        <option>15분</option>
+        <option>5분</option>
+        <option>1시간</option>
+        <option>4시간</option>
+        <option>일봉</option>
+      </select>
+
+      <label for="step">연습한 스텝</label>
+      <select id="step" name="step">
+        <option value="01">01 구조</option>
+        <option value="02">02 자리</option>
+        <option value="03">03 위치</option>
+        <option value="04">04 시간</option>
+        <option value="05">05 되돌림</option>
+        <option value="06">06 실버불릿</option>
+      </select>
+
+      <label for="note">한 줄 메모</label>
+      <textarea id="note" name="note" placeholder="예: 15분에서 초크를 중간 고점으로 잘못 봤다. 마지막 BOS 고점을 다시 표시함."></textarea>
+
+      <label for="ok">혼자 그렸나</label>
+      <select id="ok" name="ok">
+        <option value="yes">예, 힌트 없이</option>
+        <option value="no">아니오, 수첩을 보고 따라 함</option>
+        <option value="">기록만</option>
+      </select>
+
+      <div class="btn-row">
+        <button class="btn ink" type="submit">기록</button>
+      </div>
+    </form>
+
+    <h2>기록</h2>
+    <div id="session-list"></div>
+
+    <h2>백업</h2>
+    <p class="fine">폰과 PC를 같이 쓰면 JSON을 보내 가져오세요. 서버에는 올라가지 않습니다.</p>
+    <div class="btn-row">
+      <button class="btn ink" type="button" id="export-btn">진행 보내기</button>
+      <label class="btn" style="color:inherit;border-color:var(--ink);">가져오기
+        <input id="import-file" type="file" accept="application/json" style="display:none">
+      </label>
+      <button class="btn" type="button" id="reset-btn" style="color:var(--short);border-color:var(--short);">이 브라우저 초기화</button>
+    </div>
+  </main>
+  <footer class="site">기록은 이 브라우저의 localStorage에만 있습니다.</footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
