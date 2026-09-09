@@ -15,22 +15,26 @@
     <div id="lock-banner" hidden>4번(시간)을 익숙하다고 표시한 뒤에 이 스텝의 「익숙함」을 누를 수 있습니다.</div>
     <p class="kicker">Step 05 · <span class="level-badge is-advanced">숙련자</span> · 원전 필터 ③ 되돌림</p>
     <h1>되돌림 — OTE</h1>
-    <p class="lede"><strong>Optimal Trade Entry</strong>. 급하게 한쪽으로 간 뒤, 너무 얕지도 끝까지도 아닌 <strong>조금 더 깊은 되돌림</strong>을 노립니다. 이 repo의 <code>OTE Retrace Entry.pine</code>과 같은 아이디어입니다.</p>
+    <p class="lede"><strong>Optimal Trade Entry</strong>. 급하게 한쪽으로 간 뒤, 너무 얕지도 끝까지도 아닌 <strong>조금 더 깊은 되돌림</strong>을 노립니다. 03의 50%(균형)보다 <strong>아래쪽(롱 기준)</strong>입니다.</p>
 
     <h2>한 줄</h2>
-    <p>이번 추진 파동에 피보를 걸어 <strong>0.618–0.705</strong> (가운데 0.705, 넓게 보면 0.79까지)로 가격이 돌아올 때, 그 띠 안에 FVG/OB가 있으면 남긴다.</p>
+    <p>이번 추진 파동에 피보를 걸어 <strong>0.618–0.705</strong> (가운데 0.705, 넓게 보면 0.79까지)로 가격이 돌아올 때, 그 띠 안에 FVG/OB가 있으면 남긴다. <strong>0=스윙 고점, 1.0=스윙 저점</strong>.</p>
 
     <figure class="figure">
       <div data-chart="ote"></div>
-      <figcaption>왼쪽 추진 캔들 뒤, 가격이 <strong>캔들 되돌림</strong>으로 0.618–0.705 띠(보라)에 들어오면 OTE 후보. 0·1.0은 스윙 고·저, FVG 50%와 다른 선입니다.</figcaption>
+      <figcaption>왼쪽 추진 캔들 뒤, 가격이 캔들로 <strong>50%를 지나</strong> 보라 띠(0.618–0.705)에 들어오면 OTE 후보. 이 띠는 03 디스카운트 안에 있습니다. FVG 박스 중앙과 다른 선입니다. SL 연습은 보통 1.0(저점) 밖.</figcaption>
     </figure>
 
-    <h2>FVG 50%와의 차이</h2>
-    <ul>
-      <li>FVG 50% = <strong>갭 박스</strong>의 중앙.</li>
-      <li>OTE = <strong>파동 전체</strong>의 61.8–70.5% 되돌림.</li>
-      <li>좋은 자리: 둘이 겹침.</li>
-    </ul>
+    <h2>03의 50%와 헷갈리지 말 것</h2>
+    <table>
+      <thead><tr><th></th><th>무엇을 나누나</th><th>질문</th></tr></thead>
+      <tbody>
+        <tr><td>FVG 50%</td><td>갭 박스 하나</td><td>진입 가격의 기본</td></tr>
+        <tr><td>범위 50% (03)</td><td>스윙 전체</td><td>싼가 비싼가 (P/D)</td></tr>
+        <tr><td>OTE</td><td>같은 스윙의 0.618–0.705</td><td>되돌림이 깊은가</td></tr>
+      </tbody>
+    </table>
+    <div class="callout do">롱이면 OTE는 항상 <strong>디스카운트 안</strong>에 있습니다. 03에서 비싼 쪽을 걸러낸 다음, 05에서 「얼마나 깊게 돌아왔나」를 봅니다.</div>
 
     <h2>피보를 어디에 걸까</h2>
     <table>
@@ -40,13 +44,13 @@
         <tr><td>숏</td><td>훑었거나 의미 있는 고점</td><td>그다음 장대로 만든 저점</td></tr>
       </tbody>
     </table>
-    <p>이 수첩의 Pine 쪽 구현은 구조가 <strong>HH-HL-HH / LL-LH-LL</strong>로 깨끗할 때만 셋업으로 봅니다. 손으로 연습할 때도 중간에 반대 라벨이 끼면 다시 셉니다.</p>
+    <p>손으로 연습할 때도 구조가 <strong>HH-HL-HH / LL-LH-LL</strong>로 깨끗할 때만 셉니다. 중간에 반대 라벨이 끼면 파동을 다시 잡습니다.</p>
 
     <h2>차트에서 할 일</h2>
     <ol>
       <li>킬존 안의, 방향이 맞는 추진 파동 하나를 고른다.</li>
-      <li>피보를 걸고 0.5 / 0.618 / 0.705 / 0.79만 남긴다.</li>
-      <li>2번에서 그린 FVG가 노란 띠(0.618–0.705)와 겹치는지 본다.</li>
+      <li>피보를 걸고 0.5 / 0.618 / 0.705 / 0.79만 남긴다. <strong>0.5보다 얕으면 OTE가 아니다.</strong></li>
+      <li>2번에서 그린 FVG가 보라 띠(0.618–0.705)와 겹치는지 본다.</li>
       <li>겹치면 수첩에 「A」, 파동 OTE만 있으면 「B」, FVG만 있으면 「C」.</li>
       <li>과거에서 A가 첫 터치에 어떻게 반응했는지 세 장만 본다. 통계를 내지 말고 눈을 훈련한다.</li>
     </ol>

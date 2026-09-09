@@ -18,19 +18,11 @@
     <p class="lede">좋은 FVG라도 <strong>이미 비싼 곳에서 사지 않는다</strong>는 필터입니다. 차트제로 영상에는 거의 없습니다. 원전이 「어디서」를 한 번 더 묻는 부분입니다.</p>
 
     <h2>한 줄</h2>
-    <p>최근 스윙의 50%가 균형. 아래는 <strong>디스카운트(할인)</strong>, 위는 <strong>프리미엄(할증)</strong>. 상승을 볼 땐 아래에서만, 하락을 볼 땐 위에서만 자리를 남긴다.</p>
+    <p>최근 스윙의 <strong>50%가 균형</strong>. 위는 <strong>프리미엄(할증·비싼 쪽)</strong>, 아래는 <strong>디스카운트(할인·싼 쪽)</strong>. 상승을 볼 땐 아래에서만, 하락을 볼 땐 위에서만 자리를 남긴다.</p>
 
     <figure class="figure">
-      <svg viewBox="0 0 640 210" role="img" aria-label="프리미엄 디스카운트">
-        <rect width="640" height="210" fill="#f8fafc"/>
-        <rect x="80" y="30" width="480" height="70" fill="#f3c4c0"/>
-        <rect x="80" y="100" width="480" height="70" fill="#c9e4d4"/>
-        <line x1="80" y1="100" x2="560" y2="100" stroke="#0f172a" stroke-width="3"/>
-        <text x="90" y="70" font-size="16">프리미엄 · 비싼 쪽 · 숏 자리</text>
-        <text x="90" y="142" font-size="16">디스카운트 · 싼 쪽 · 롱 자리</text>
-        <text x="430" y="96" font-size="13" font-family="IBM Plex Mono,monospace">50% 균형</text>
-      </svg>
-      <figcaption>피보나치 되돌림을 저점→고점에 걸면 0.5가 이 선입니다. FVG 50%와 다른 선입니다.</figcaption>
+      <div data-chart="pd"></div>
+      <figcaption>같은 스윙의 <strong>50% 가로선</strong>이 균형입니다. 위(프리미엄)는 비싼 쪽, 아래는 디스카운트(싼 쪽). 상승을 연습할 때는 아래쪽 FVG(D)만 남기고, 위쪽 FVG(P)는 관찰만 합니다. FVG 박스 중앙과 다른 선입니다.</figcaption>
     </figure>
 
     <h2>두 개의 50%를 섞지 말 것</h2>
@@ -45,7 +37,7 @@
     <h2>차트에서 할 일</h2>
     <ol>
       <li>2번에서 남긴 FVG/OB가 있는 같은 차트를 연다.</li>
-      <li>그 자리를 만든 스윙의 저점과 고점에 피보를 건다. 0과 1만 맞으면 된다. 0.5만 보면 된다.</li>
+      <li>그 자리를 만든 스윙의 <strong>저점과 고점</strong>에 피보를 건다. 0과 1 숫자보다 <strong>50% 가로선</strong>만 보면 된다.</li>
       <li>각 FVG가 0.5 위인지 아래인지 박스에 「P」 또는 「D」를 적는다.</li>
       <li>1번의 방향이 상승이면 D만 남기고 P는 연습에서 제외한다. 하락이면 반대.</li>
       <li>제외한 자리가 나중에 어떻게 가는지 <em>관찰만</em> 한다. 「필터가 무엇을 걸러 주는지」를 보는 숙제다.</li>
@@ -59,7 +51,7 @@
       <li><input type="checkbox" data-check="03-d"><span>제외한 자리 중 하나가 실패한 예를 메모했다. 없어도 「없음」이라고 적는다.</span></li>
     </ul>
 
-    <div class="callout warn">횡보로 스윙이 작으면 50%가 의미가 없습니다. 1번에서 「이건 횡보다」라고 적은 구간은 이 스텝을 건너뛰세요.</div>
+    <div class="callout warn">횡보로 스윙이 작으면 50%가 의미가 없습니다. 1번에서 「이건 횡보다」라고 적은 구간은 이 스텝을 건너뛰세요. OTE(05)는 이 50%보다 <strong>더 깊은 되돌림</strong>입니다. 지금은 위·아래만 구분하세요.</div>
 
     <div class="mastery">
       <button type="button" id="mastery-btn" data-step="03">이 스텝, 익숙하다고 표시</button>
@@ -77,6 +69,7 @@
     <p><a href="02.html">이전</a> · <a href="04.html">다음: 시간</a></p>
   </main>
   <footer class="site">학습 도구입니다. 투자 권유가 아닙니다.</footer>
+  <script src="../assets/charts.js"></script>
   <script src="../assets/app.js"></script>
 </body>
 </html>

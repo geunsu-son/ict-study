@@ -52,6 +52,7 @@
   }
 
   function hline(y, x1, x2, color, dash, width) {
+    var dashAttr = dash === "" ? "" : ' stroke-dasharray="' + (dash || "7 5") + '"';
     return (
       '<line x1="' +
       x1 +
@@ -65,9 +66,9 @@
       (color || C.bos) +
       '" stroke-width="' +
       (width || 2) +
-      '" stroke-dasharray="' +
-      (dash || "7 5") +
-      '"/>'
+      '"' +
+      dashAttr +
+      "/>"
     );
   }
 
@@ -192,54 +193,135 @@
     return s;
   }
 
-  function oteSvg() {
-    var y0 = 36;
-    var y1 = 188;
-    var range = y1 - y0;
-    var y618 = Math.round(y1 - range * 0.618);
-    var y705 = Math.round(y1 - range * 0.705);
-    var y50 = Math.round(y1 - range * 0.5);
-    var s = '<rect width="640" height="250" fill="' + C.bg + '"/>';
-
-    s += hline(y0, 40, 600, C.fib, "4 4", 1);
-    s += hline(y1, 40, 600, C.fib, "4 4", 1);
-    s += hline(y50, 40, 600, C.fib, "3 5", 1);
-    s += hline(y618, 40, 600, C.oteLine, "7 5", 1.5);
-    s += hline(y705, 40, 600, C.oteLine, "7 5", 1.5);
+  function pdSvg() {
+    var yHigh = 48;
+    var yLow = 208;
+    var y50 = Math.round((yHigh + yLow) / 2);
+    var s = '<rect width="640" height="260" fill="' + C.bg + '"/>';
 
     s +=
-      '<rect x="40" y="' +
-      y705 +
-      '" width="560" height="' +
-      (y618 - y705) +
+      '<rect x="36" y="' +
+      yHigh +
+      '" width="500" height="' +
+      (y50 - yHigh) +
+      '" fill="rgba(225, 29, 72, 0.10)"/>';
+    s +=
+      '<rect x="36" y="' +
+      y50 +
+      '" width="500" height="' +
+      (yLow - y50) +
+      '" fill="rgba(5, 150, 105, 0.10)"/>';
+
+    s += hline(yHigh, 36, 536, C.fib, "4 4", 1);
+    s += hline(yLow, 36, 536, C.fib, "4 4", 1);
+    s += hline(y50, 36, 536, "#0f172a", "", 2);
+
+    s += candle(52, 198, 190, 208, 192);
+    s += candle(76, 192, 168, 194, 172);
+    s += candle(100, 172, 148, 174, 152);
+    s += candle(124, 152, 118, 154, 122);
+    s += candle(148, 122, 88, 124, 92);
+    s += candle(172, 92, 48, 94, 54);
+
+    s += candle(208, 54, 56, 72, 68);
+    s += candle(232, 68, 70, 96, 90);
+    s += candle(256, 90, 92, 118, 112);
+    s += candle(280, 112, 108, 148, 142);
+
+    s +=
+      '<rect x="248" y="148" width="56" height="18" fill="rgba(37, 99, 235, 0.22)" stroke="#2563eb" stroke-width="1" rx="3"/>';
+    s += txt(250, 140, "FVG D", { color: C.up, size: 10 });
+
+    s +=
+      '<rect x="196" y="62" width="48" height="16" fill="rgba(225, 29, 72, 0.12)" stroke="#e11d48" stroke-width="1" stroke-dasharray="3 2" rx="3"/>';
+    s += txt(196, 56, "FVG P", { color: C.down, size: 10 });
+
+    s += txt(16, 22, "같은 스윙의 50%", { size: 13 });
+    s += txt(16, 38, "위 = 프리미엄(비싼 쪽) · 아래 = 디스카운트(싼 쪽)", { color: C.muted, size: 10, weight: 500 });
+    s += txt(548, yHigh + 4, "고점", { color: C.muted, size: 10, weight: 500 });
+    s += txt(548, y50 + 4, "50%", { color: C.text, size: 11 });
+    s += txt(548, yLow + 4, "저점", { color: C.muted, size: 10, weight: 500 });
+    s += txt(400, yHigh + 28, "프리미엄 · 숏", { color: C.down, size: 11 });
+    s += txt(400, yLow - 16, "디스카운트 · 롱", { color: C.up, size: 11 });
+    s += txt(248, 228, "상승이면 D만 남김 · P는 관찰만", { color: C.muted, size: 10, weight: 500 });
+
+    return s;
+  }
+
+  function oteSvg() {
+    var y0 = 58;
+    var y1 = 348;
+    var range = y1 - y0;
+    var y50 = Math.round(y0 + range * 0.5);
+    var y618 = Math.round(y0 + range * 0.618);
+    var y705 = Math.round(y0 + range * 0.705);
+    var y79 = Math.round(y0 + range * 0.79);
+    var s = '<rect width="640" height="400" fill="' + C.bg + '"/>';
+
+    s +=
+      '<rect x="36" y="' +
+      y0 +
+      '" width="470" height="' +
+      (y50 - y0) +
+      '" fill="rgba(225, 29, 72, 0.07)"/>';
+    s +=
+      '<rect x="36" y="' +
+      y50 +
+      '" width="470" height="' +
+      (y1 - y50) +
+      '" fill="rgba(5, 150, 105, 0.07)"/>';
+
+    s +=
+      '<rect x="36" y="' +
+      y618 +
+      '" width="470" height="' +
+      Math.max(y705 - y618, 18) +
       '" fill="' +
       C.ote +
       '" stroke="' +
       C.oteLine +
-      '" stroke-width="1" rx="4"/>';
+      '" stroke-width="1.5" rx="4"/>';
 
-    s += txt(44, y0 - 6, "0 · 스윙 고점", { color: C.muted, size: 10, weight: 500 });
-    s += txt(44, y1 + 14, "1.0 · 스윙 저점", { color: C.muted, size: 10, weight: 500 });
-    s += txt(548, y618 + 4, "0.618", { color: C.oteLine, size: 10 });
-    s += txt(548, y705 + 4, "0.705", { color: C.oteLine, size: 10 });
-    s += txt(548, y50 + 4, "0.5", { color: C.muted, size: 10, weight: 500 });
-    s += txt(260, y705 + (y618 - y705) / 2 + 4, "OTE", { color: C.oteLine, size: 11 });
+    s += hline(y0, 36, 506, C.fib, "4 4", 1);
+    s += hline(y1, 36, 506, C.fib, "4 4", 1);
+    s += hline(y50, 36, 506, "#0f172a", "", 1.8);
+    s += hline(y618, 36, 506, C.oteLine, "6 4", 1.8);
+    s += hline(y705, 36, 506, C.oteLine, "6 4", 1.8);
+    s += hline(y79, 36, 506, C.fib, "2 4", 1);
 
-    s += candle(52, 188, 182, 190, 178);
-    s += candle(76, 178, 150, 180, 155);
-    s += candle(100, 155, 120, 158, 125);
-    s += candle(124, 125, 95, 128, 100);
-    s += candle(148, 100, 72, 102, 78);
-    s += candle(172, 78, 48, 80, 52);
+    var scale = range / 172;
+    function cy(old) {
+      return Math.round(y0 + (old - 56) * scale);
+    }
 
-    s += candle(208, 52, 55, 58, 56);
-    s += candle(232, 56, 68, 58, 65);
-    s += candle(256, 65, 82, 68, 78);
-    s += candle(280, 78, 88, 90, 84);
-    s += candle(304, 84, 92, 96, 88);
+    s += candle(48, cy(220), cy(212), cy(228), cy(214));
+    s += candle(72, cy(214), cy(184), cy(216), cy(188));
+    s += candle(96, cy(188), cy(156), cy(190), cy(160));
+    s += candle(120, cy(160), cy(124), cy(162), cy(128));
+    s += candle(144, cy(128), cy(94), cy(130), cy(98));
+    s += candle(168, cy(98), cy(56), cy(100), cy(62));
+
+    s += candle(204, cy(62), cy(66), cy(86), cy(82));
+    s += candle(228, cy(82), cy(84), cy(114), cy(110));
+    s += candle(252, cy(110), cy(112), cy(144), cy(138));
+    s += candle(276, cy(138), cy(126), cy(154), cy(150));
+    s += candle(300, cy(150), cy(148), cy(174), cy(168));
 
     s += txt(16, 22, "롱 OTE · 캔들 되돌림", { size: 13 });
-    s += txt(16, 38, "추진(왼쪽) → 0.618–0.705 띠(보라) 안으로 눌림", { color: C.muted, size: 10, weight: 500 });
+    s += txt(16, 38, "0=고점 · 1.0=저점. 보라 띠만 OTE (0.618–0.705). 0.79는 여유선", {
+      color: C.muted,
+      size: 10,
+      weight: 500,
+    });
+    s += txt(520, y0 + 4, "0 고점", { color: C.muted, size: 10, weight: 500 });
+    s += txt(520, y50 + 4, "0.5 균형", { color: C.text, size: 10 });
+    s += txt(520, y618 + 4, "0.618", { color: C.oteLine, size: 10 });
+    s += txt(520, y705 + 4, "0.705", { color: C.oteLine, size: 10 });
+    s += txt(520, y79 + 14, "0.79 여유", { color: C.muted, size: 10, weight: 500 });
+    s += txt(520, y1 + 4, "1.0 저점", { color: C.muted, size: 10, weight: 500 });
+    s += txt(44, y618 + Math.round((y705 - y618) / 2) + 4, "OTE", { color: C.oteLine, size: 12 });
+    s += txt(330, y0 + 28, "프리미엄", { color: C.down, size: 11, weight: 500 });
+    s += txt(330, y1 - 14, "디스카운트", { color: C.up, size: 11, weight: 500 });
 
     return s;
   }
@@ -247,7 +329,8 @@
   var CHARTS = {
     "bos-choch": { svg: bosChochSvg, viewBox: "0 0 640 220", label: "BOS 가로선과 ChoCH 가로선" },
     fvg: { svg: fvgSvg, viewBox: "0 0 640 240", label: "FVG 꼬리 갭과 오더블록" },
-    ote: { svg: oteSvg, viewBox: "0 0 640 250", label: "OTE 되돌림 캔들" },
+    pd: { svg: pdSvg, viewBox: "0 0 640 260", label: "프리미엄 디스카운트와 50% 가로선" },
+    ote: { svg: oteSvg, viewBox: "0 0 640 400", label: "OTE 되돌림 캔들" },
   };
 
   function mountCharts() {
