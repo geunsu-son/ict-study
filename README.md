@@ -57,13 +57,33 @@ git push -u origin main
 4. 프로젝트 이름 `ict-study`, 빌드 명령 **비움**, 출력 디렉터리 `/` (또는 `.`)  
 5. 저장 후 `*.pages.dev` 주소가 나옵니다. 원하는 도메인을 붙이면 됩니다.
 
+**주의:** 이 사이트는 **Pages 정적 배포**입니다. `npx wrangler deploy`(Workers용)를 빌드·배포 명령에 넣으면 실패합니다. Wrangler를 쓸 때는 반드시 `wrangler pages deploy`입니다.
+
 이미 Wrangler가 있으면 폴더에서:
 
 ```bash
 npx wrangler pages deploy . --project-name=ict-study
+# 또는 wrangler.toml의 pages_build_output_dir을 쓰려면
+npx wrangler pages deploy
 ```
 
 `wrangler.toml`의 `pages_build_output_dir`은 `.` 입니다. 빌드 스텝은 없습니다.
+
+### 배포가 `Missing entry-point to Worker script`로 실패할 때
+
+로그에 `Executing user deploy command: npx wrangler deploy`가 보이면, 대시보드에 **Workers 배포 명령**이 들어간 상태입니다.
+
+1. Cloudflare Dashboard → **Workers & Pages** → 해당 **Pages** 프로젝트 → **Settings** → **Build**  
+2. 아래 둘 중 **하나**로 맞춥니다.
+
+| 방식 | 빌드/배포 명령 | 출력 디렉터리 |
+|---|---|---|
+| 권장 (정적만) | **비움** | `.` 또는 `/` |
+| Wrangler 사용 | `npx wrangler pages deploy` | (명령에서 처리, 출력 칸은 비워도 됨) |
+
+3. **Save** 후 **Retry deployment** (또는 main에 빈 커밋 푸시)
+
+`wrangler deploy` / `npx wrangler deploy`는 이 repo에 맞지 않습니다.
 
 ## 이 폴더의 파일
 

@@ -1,0 +1,8 @@
+{
+  "name": "ict-study",
+  "private": true,
+  "description": "ICT 실습 수첩 — Cloudflare Pages 정적 사이트",
+  "scripts": {
+    "deploy": "wrangler pages deploy"
+  }
+}
