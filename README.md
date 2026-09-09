@@ -77,6 +77,7 @@ npx wrangler pages deploy . --project-name=ict-study
 | `DESIGN.md` | 설계 메모 |
 | `AGENTS.md` | 에이전트 역할 |
 | `docs/conversation-context.md` | 이전 대화 요약 (영상·필터·합의) |
+| `docs/video-compare.md` | 차트제로·트레이더 블랙 영상 vs 수첩 비교 |
 | `docs/starter-prompt.md` | 새 채팅에 붙여넣을 프롬프트 |
 | `.cursor/rules/ict-study.mdc` | Cursor가 항상 읽는 규칙 |
 
