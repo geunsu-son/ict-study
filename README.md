@@ -3,6 +3,8 @@
 차트 앞에서 ICT를 **같은 체크리스트 순서**로 반복하는 정적 학습 사이트입니다.  
 주문을 넣거나 시세를 가져오지 않습니다.
 
+**배포:** [https://ict-study.pages.dev/](https://ict-study.pages.dev/)
+
 `trading-to-fire`의 `ict-study/` **안 파일만** 새 GitHub repo **루트**에 두면 됩니다.  
 폴더를 한 겹 더 넣지 마세요 (`ict-study/ict-study/...` 가 되면 안 됩니다).
 
@@ -55,7 +57,7 @@ git push -u origin main
 
 3. [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → Git 연결  
 4. 프로젝트 이름 `ict-study`, 빌드 명령 **비움**, 출력 디렉터리 `/` (또는 `.`)  
-5. 저장 후 `*.pages.dev` 주소가 나옵니다. 원하는 도메인을 붙이면 됩니다.
+5. 저장 후 `*.pages.dev` 주소가 나옵니다. 이 수첩의 배포 주소는 [https://ict-study.pages.dev/](https://ict-study.pages.dev/) 입니다.
 
 이미 Wrangler가 있으면 폴더에서:
 
