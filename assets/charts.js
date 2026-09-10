@@ -91,59 +91,43 @@
     );
   }
 
-  function panelDivider(x, y2) {
-    return (
-      '<line x1="' +
-      x +
-      '" y1="8" x2="' +
-      x +
-      '" y2="' +
-      (y2 || 168) +
-      '" stroke="#e2e8f0" stroke-width="1"/>'
-    );
+  function panelBg() {
+    return '<rect width="300" height="168" fill="' + C.bg + '"/>';
   }
 
-  function bosChochSvg() {
+  function bosSvg() {
     var bosY = 96;
+    var s = panelBg();
+    s += txt(12, 18, "상승 BOS", { size: 12 });
+    s += txt(12, 32, "직전 고점 가로선 · 종가가 선 위", { color: C.muted, size: 9, weight: 500 });
+    s += candle(24, 148, 158, 160, 152, 26);
+    s += candle(58, 152, 128, 154, 122, 26);
+    s += candle(92, 122, 102, 124, 96, 26);
+    s += candle(126, 96, 108, 128, 120, 26);
+    s += candle(160, 120, 110, 132, 124, 26);
+    s += candle(194, 124, 62, 126, 70, 26);
+    s += hline(bosY, 16, 252, C.bos);
+    s += txt(256, bosY + 4, "BOS", { color: C.bos, size: 11 });
+    s += txt(256, bosY + 16, "직전 고점", { color: C.muted, size: 9, weight: 500 });
+    s += '<circle cx="252" cy="' + bosY + '" r="3" fill="' + C.bos + '"/>';
+    return s;
+  }
+
+  function chochSvg() {
     var chochY = 78;
-    var s = '<rect width="640" height="176" fill="' + C.bg + '"/>';
-    s += panelDivider(320, 168);
-    s += txt(12, 16, "상승 BOS", { size: 12 });
-    s += txt(12, 30, "직전 고점 가로선 · 종가가 선 위", { color: C.muted, size: 9, weight: 500 });
-
-    s += candle(18, 148, 158, 160, 152, 22);
-    s += candle(48, 152, 128, 154, 122, 22);
-    s += candle(78, 122, 102, 124, 96, 22);
-    s += candle(108, 96, 108, 128, 120, 22);
-    s += candle(138, 120, 110, 132, 124, 22);
-    s += candle(168, 124, 62, 126, 70, 22);
-    s += hline(bosY, 14, 214, C.bos);
-    s += txt(218, bosY + 4, "BOS", { color: C.bos, size: 11 });
-    s += txt(218, bosY + 16, "직전 고점", { color: C.muted, size: 9, weight: 500 });
-
-    s += txt(332, 16, "하락 중 초크 (CHoCH)", { size: 12 });
-    s += txt(332, 30, "마지막 BOS 고점 가로선 · 종가 돌파", { color: C.muted, size: 9, weight: 500 });
-
-    s += candle(338, 44, 42, 50, 46, 22);
-    s += candle(368, 46, 70, 48, 66, 22);
-    s += candle(398, 66, 92, 68, 88, 22);
-    s += candle(428, 88, 118, 90, 114, 22);
-    s += candle(458, 114, 100, 126, 118, 22);
-    s += candle(488, 118, 58, 120, 64, 22);
-    s += hline(chochY, 334, 534, C.choch);
-    s += txt(538, chochY + 4, "ChoCH", { color: C.choch, size: 11 });
-    s += txt(538, chochY + 16, "마지막 BOS 고점", { color: C.muted, size: 9, weight: 500 });
-
-    s +=
-      '<circle cx="214" cy="' +
-      bosY +
-      '" r="3" fill="' +
-      C.bos +
-      '"/><circle cx="534" cy="' +
-      chochY +
-      '" r="3" fill="' +
-      C.choch +
-      '"/>';
+    var s = panelBg();
+    s += txt(12, 18, "하락 중 초크 (CHoCH)", { size: 12 });
+    s += txt(12, 32, "마지막 BOS 고점 가로선 · 종가 돌파", { color: C.muted, size: 9, weight: 500 });
+    s += candle(24, 44, 42, 50, 46, 26);
+    s += candle(58, 46, 70, 48, 66, 26);
+    s += candle(92, 66, 92, 68, 88, 26);
+    s += candle(126, 88, 118, 90, 114, 26);
+    s += candle(160, 114, 100, 126, 118, 26);
+    s += candle(194, 118, 58, 120, 64, 26);
+    s += hline(chochY, 16, 228, C.choch);
+    s += txt(234, chochY + 4, "ChoCH", { color: C.choch, size: 11 });
+    s += txt(234, chochY + 16, "BOS 고점", { color: C.muted, size: 9, weight: 500 });
+    s += '<circle cx="228" cy="' + chochY + '" r="3" fill="' + C.choch + '"/>';
     return s;
   }
 
@@ -153,45 +137,46 @@
     var gapTop = c3Low;
     var gapBottom = c1High;
     var mid = (gapTop + gapBottom) / 2;
-    var s = '<rect width="640" height="176" fill="' + C.bg + '"/>';
-    s += panelDivider(320, 168);
-    s += txt(12, 16, "상승 FVG", { size: 12 });
-    s += txt(12, 30, "1번 고(꼬리) ↔ 3번 저(꼬리) 사이 갭", { color: C.muted, size: 9, weight: 500 });
-
-    s += candle(28, 132, 108, 148, 140, 28);
-    s += candle(68, 140, 36, 144, 48, 34);
-    s += candle(114, 50, 32, 78, 42, 28);
-
+    var s = panelBg();
+    s += txt(12, 18, "상승 FVG", { size: 12 });
+    s += txt(12, 32, "1번 고(꼬리) ↔ 3번 저(꼬리) 사이 갭", { color: C.muted, size: 9, weight: 500 });
+    s += candle(24, 132, 108, 148, 140, 36);
+    s += candle(84, 140, 36, 144, 48, 50);
+    s += candle(164, 50, 32, 78, 42, 36);
     s +=
-      '<rect x="20" y="' +
+      '<rect x="16" y="' +
       gapTop +
-      '" width="132" height="' +
+      '" width="196" height="' +
       (gapBottom - gapTop) +
       '" fill="' +
       C.fvg +
       '" stroke="' +
       C.fvgLine +
       '" stroke-width="1" stroke-dasharray="4 3" rx="4"/>';
-    s += hline(c1High, 20, 152, C.fvgLine, "5 4", 1.5);
-    s += hline(c3Low, 20, 152, C.fvgLine, "5 4", 1.5);
-    s += hline(mid, 20, 152, C.muted, "3 4", 1);
-    s += txt(158, c1High + 4, "1번 고", { color: C.fvgLine, size: 10 });
-    s += txt(158, c3Low + 4, "3번 저", { color: C.fvgLine, size: 10 });
-    s += txt(158, mid + 4, "50%", { color: C.muted, size: 10, weight: 500 });
-    s += txt(48, gapTop + 18, "FVG", { color: C.fvgLine, size: 11 });
+    s += hline(c1High, 16, 228, C.fvgLine, "5 4", 1.5);
+    s += hline(c3Low, 16, 228, C.fvgLine, "5 4", 1.5);
+    s += hline(mid, 16, 228, C.muted, "3 4", 1);
+    s += txt(234, c1High + 4, "1번 고", { color: C.fvgLine, size: 10 });
+    s += txt(234, c3Low + 4, "3번 저", { color: C.fvgLine, size: 10 });
+    s += txt(234, mid + 4, "50%", { color: C.muted, size: 10, weight: 500 });
+    s += txt(88, gapTop + 18, "FVG", { color: C.fvgLine, size: 11 });
+    return s;
+  }
 
-    s += txt(332, 16, "오더블록 (OB)", { size: 12 });
-    s += txt(332, 30, "장대 직전 반대색 짧은 캔들", { color: C.muted, size: 9, weight: 500 });
-
-    s += candle(360, 132, 126, 148, 140, 24);
-    s += candle(400, 140, 40, 148, 48, 36);
+  function obSvg() {
+    var s = panelBg();
+    s += txt(12, 18, "오더블록 (OB)", { size: 12 });
+    s += txt(12, 32, "장대 직전 반대색 짧은 캔들", { color: C.muted, size: 9, weight: 500 });
+    s += candle(28, 132, 126, 148, 140, 40);
+    s += candle(88, 140, 38, 148, 46, 54);
+    s += candle(204, 46, 34, 54, 40, 32);
+    s += candle(248, 40, 36, 78, 70, 32);
     s +=
-      '<rect x="354" y="120" width="36" height="32" fill="none" stroke="' +
+      '<rect x="20" y="118" width="56" height="36" fill="none" stroke="' +
       C.down +
       '" stroke-width="1.5" stroke-dasharray="3 2" rx="2"/>';
-    s += txt(354, 114, "OB", { color: C.down, size: 10 });
-    s += txt(444, 50, "장대", { color: C.up, size: 10, weight: 500 });
-
+    s += txt(20, 112, "OB", { color: C.down, size: 10 });
+    s += txt(148, 44, "장대", { color: C.up, size: 10, weight: 500 });
     return s;
   }
 
@@ -329,8 +314,10 @@
   }
 
   var CHARTS = {
-    "bos-choch": { svg: bosChochSvg, viewBox: "0 0 640 176", label: "BOS 가로선과 ChoCH 가로선" },
-    fvg: { svg: fvgSvg, viewBox: "0 0 640 176", label: "FVG 꼬리 갭과 오더블록" },
+    bos: { svg: bosSvg, viewBox: "0 0 300 168", label: "상승 BOS 가로선" },
+    choch: { svg: chochSvg, viewBox: "0 0 300 168", label: "하락 중 ChoCH 가로선" },
+    fvg: { svg: fvgSvg, viewBox: "0 0 300 168", label: "FVG 꼬리 갭" },
+    ob: { svg: obSvg, viewBox: "0 0 300 168", label: "오더블록" },
     pd: { svg: pdSvg, viewBox: "0 0 640 260", label: "프리미엄 디스카운트와 50% 가로선" },
     ote: { svg: oteSvg, viewBox: "0 0 640 400", label: "OTE 되돌림 캔들" },
   };
