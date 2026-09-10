@@ -140,26 +140,26 @@
     var s = panelBg();
     s += txt(12, 18, "상승 FVG", { size: 12 });
     s += txt(12, 32, "1번 고(꼬리) ↔ 3번 저(꼬리) 사이 갭", { color: C.muted, size: 9, weight: 500 });
-    s += candle(36, 132, 108, 148, 140, 32);
-    s += candle(80, 140, 36, 144, 48, 38);
-    s += candle(130, 50, 32, 78, 42, 32);
+    s += candle(24, 132, 108, 148, 140, 36);
+    s += candle(84, 140, 36, 144, 48, 50);
+    s += candle(164, 50, 32, 78, 42, 36);
     s +=
-      '<rect x="28" y="' +
+      '<rect x="16" y="' +
       gapTop +
-      '" width="148" height="' +
+      '" width="196" height="' +
       (gapBottom - gapTop) +
       '" fill="' +
       C.fvg +
       '" stroke="' +
       C.fvgLine +
       '" stroke-width="1" stroke-dasharray="4 3" rx="4"/>';
-    s += hline(c1High, 28, 176, C.fvgLine, "5 4", 1.5);
-    s += hline(c3Low, 28, 176, C.fvgLine, "5 4", 1.5);
-    s += hline(mid, 28, 176, C.muted, "3 4", 1);
-    s += txt(184, c1High + 4, "1번 고", { color: C.fvgLine, size: 10 });
-    s += txt(184, c3Low + 4, "3번 저", { color: C.fvgLine, size: 10 });
-    s += txt(184, mid + 4, "50%", { color: C.muted, size: 10, weight: 500 });
-    s += txt(56, gapTop + 18, "FVG", { color: C.fvgLine, size: 11 });
+    s += hline(c1High, 16, 228, C.fvgLine, "5 4", 1.5);
+    s += hline(c3Low, 16, 228, C.fvgLine, "5 4", 1.5);
+    s += hline(mid, 16, 228, C.muted, "3 4", 1);
+    s += txt(234, c1High + 4, "1번 고", { color: C.fvgLine, size: 10 });
+    s += txt(234, c3Low + 4, "3번 저", { color: C.fvgLine, size: 10 });
+    s += txt(234, mid + 4, "50%", { color: C.muted, size: 10, weight: 500 });
+    s += txt(88, gapTop + 18, "FVG", { color: C.fvgLine, size: 11 });
     return s;
   }
 
@@ -167,14 +167,16 @@
     var s = panelBg();
     s += txt(12, 18, "오더블록 (OB)", { size: 12 });
     s += txt(12, 32, "장대 직전 반대색 짧은 캔들", { color: C.muted, size: 9, weight: 500 });
-    s += candle(70, 132, 126, 148, 140, 32);
-    s += candle(128, 140, 40, 148, 48, 46);
+    s += candle(28, 132, 126, 148, 140, 40);
+    s += candle(88, 140, 38, 148, 46, 54);
+    s += candle(204, 46, 34, 54, 40, 32);
+    s += candle(248, 40, 36, 78, 70, 32);
     s +=
-      '<rect x="62" y="118" width="48" height="36" fill="none" stroke="' +
+      '<rect x="20" y="118" width="56" height="36" fill="none" stroke="' +
       C.down +
       '" stroke-width="1.5" stroke-dasharray="3 2" rx="2"/>';
-    s += txt(62, 112, "OB", { color: C.down, size: 10 });
-    s += txt(186, 52, "장대", { color: C.up, size: 10, weight: 500 });
+    s += txt(20, 112, "OB", { color: C.down, size: 10 });
+    s += txt(148, 44, "장대", { color: C.up, size: 10, weight: 500 });
     return s;
   }
 
