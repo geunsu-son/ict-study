@@ -57,6 +57,8 @@ body {
   line-height: 1.65;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -196,8 +198,10 @@ a:hover { color: var(--accent-hover); }
 }
 
 .wrap {
-  width: min(760px, calc(100% - 2rem));
-  margin: 2rem auto 4rem;
+  width: min(760px, 100%);
+  margin: 1.25rem auto 3rem;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
 }
 
 .hero h1,
@@ -465,12 +469,19 @@ h3 {
   margin: 1.2rem 0 0.4rem;
 }
 
-.figure.is-compact {
-  padding: 0.45rem 0.5rem 0.4rem;
+.figure {
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+  max-width: 100%;
 }
-.figure.is-compact figcaption { margin-top: 0.4rem; }
 
-.figure svg {
+.figure.is-compact {
+  padding: 0;
+}
+.figure.is-compact figcaption { margin-top: 0.45rem; }
+
+.figure svg,
+.chart-svg {
   width: 100%;
   height: auto;
   display: block;
@@ -483,12 +494,27 @@ h3 {
   color: var(--muted);
 }
 
-.chart-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-xs);
+.chart-pair {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+  min-width: 0;
 }
+
+.chart-pair [data-chart] {
+  min-width: 0;
+  width: 100%;
+}
+
+.one-liners {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.one-liners li { margin: 0; }
 
 .refs {
   margin: 2.5rem 0 0;
@@ -789,16 +815,35 @@ textarea { min-height: 6rem; resize: vertical; }
 .short { color: var(--short); font-weight: 700; }
 
 footer.site {
-  width: min(760px, calc(100% - 2rem));
+  width: min(760px, 100%);
   margin: 0 auto 2.5rem;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+@media (min-width: 640px) {
+  .chart-pair { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 639px) {
+  .top, .dots {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .wrap, footer.site {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+  }
+  h2 { margin-top: 1.6rem; }
 }
 
 @media print {
   .top, .progress-bar, .dots, .mastery, .btn-row, #lock-banner, .playbook-tabs, .tab-note { display: none !important; }
   #chrome { position: static; border: 0; backdrop-filter: none; }
   body { background: #fff; }
-  .wrap { width: 100%; margin: 0; }
+  .wrap, footer.site { width: 100%; margin: 0; padding: 0; }
   .playbook-zone[hidden] { display: block !important; }
 }
