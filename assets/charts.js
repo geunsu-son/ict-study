@@ -124,10 +124,10 @@
     s += candle(126, 88, 118, 90, 114, 26);
     s += candle(160, 114, 100, 126, 118, 26);
     s += candle(194, 118, 58, 120, 64, 26);
-    s += hline(chochY, 16, 252, C.choch);
-    s += txt(256, chochY + 4, "ChoCH", { color: C.choch, size: 11 });
-    s += txt(256, chochY + 16, "마지막 BOS 고점", { color: C.muted, size: 9, weight: 500 });
-    s += '<circle cx="252" cy="' + chochY + '" r="3" fill="' + C.choch + '"/>';
+    s += hline(chochY, 16, 228, C.choch);
+    s += txt(234, chochY + 4, "ChoCH", { color: C.choch, size: 11 });
+    s += txt(234, chochY + 16, "BOS 고점", { color: C.muted, size: 9, weight: 500 });
+    s += '<circle cx="228" cy="' + chochY + '" r="3" fill="' + C.choch + '"/>';
     return s;
   }
 
@@ -167,14 +167,14 @@
     var s = panelBg();
     s += txt(12, 18, "오더블록 (OB)", { size: 12 });
     s += txt(12, 32, "장대 직전 반대색 짧은 캔들", { color: C.muted, size: 9, weight: 500 });
-    s += candle(48, 132, 126, 148, 140, 28);
-    s += candle(92, 140, 40, 148, 48, 42);
+    s += candle(70, 132, 126, 148, 140, 32);
+    s += candle(128, 140, 40, 148, 48, 46);
     s +=
-      '<rect x="42" y="120" width="40" height="32" fill="none" stroke="' +
+      '<rect x="62" y="118" width="48" height="36" fill="none" stroke="' +
       C.down +
       '" stroke-width="1.5" stroke-dasharray="3 2" rx="2"/>';
-    s += txt(42, 114, "OB", { color: C.down, size: 10 });
-    s += txt(142, 50, "장대", { color: C.up, size: 10, weight: 500 });
+    s += txt(62, 112, "OB", { color: C.down, size: 10 });
+    s += txt(186, 52, "장대", { color: C.up, size: 10, weight: 500 });
     return s;
   }
 

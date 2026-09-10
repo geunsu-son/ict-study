@@ -516,6 +516,8 @@ h3 {
 
 .one-liners li { margin: 0; }
 
+.nowrap { white-space: nowrap; }
+
 .refs {
   margin: 2.5rem 0 0;
   padding: 1rem 1.1rem;
