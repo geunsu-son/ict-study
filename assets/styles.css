@@ -527,12 +527,29 @@ table {
   overflow: hidden;
 }
 
+.table-scroll {
+  overflow-x: auto;
+  margin: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll table {
+  min-width: 36rem;
+  margin: 0;
+}
+
 th,
 td {
   border-bottom: 1px solid var(--border);
   padding: 0.65rem 0.75rem;
   text-align: left;
   vertical-align: top;
+  word-break: keep-all;
+}
+
+th:first-child,
+td:first-child {
+  white-space: nowrap;
 }
 
 tr:last-child td { border-bottom: 0; }
